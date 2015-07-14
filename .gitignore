@@ -1,7 +1,9 @@
 *.class
 *.log
+*.iml
 
 # sbt specific
+.idea
 .cache
 .history
 .lib/
