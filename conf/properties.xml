@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications>
+    <inputs>
+        <input type="streaming" class="org.apache.spark.framework.input.">
+            <name>mobile_flow_stream</name>
+            <topic>mobile-free-flow</topic>
+            <brokerList>10.180.92.233:2181,10.180.92.234:2181,10.180.92.235:2181</brokerList>
+            <groupId>spark-kafka-test</groupId>
+        </input>
+    </inputs>
+    <parsers>
+        <parser type="clickEventParser" class="org.apache.spark.applications.clickstream.parser.ClickEventParser" />
+    </parsers>
+    <operators>
+        <operator type="count" class="org.apache.spark.framework.operator.CountOperator"/>
+        <operator type="distinct_aggregate_count" class="org.apache.spark.framework.operator.DistinctAggregateCountOperator"/>
+        <operator type="aggregate" class="org.apache.spark.framework.operator.AggregateOperator"/>
+        <operator type="join_count" class="org.apache.spark.applications.weblog.operator.JoinCountOperator"/>
+        <operator type="qiyi_accumulator" class="org.apache.spark.applications.qiyi_log.QiyiLogOperator"/>
+    </operators>
+    <application type="streaming">
+        <category>clickstream</category>
+        <input type="kafka" name="sarrs_act_stream"/>
+        <parser>org.apache.spark.applications.clickstream.parser.ClickEventParser</parser>
+        <items>
+            <item>source_ip</item>
+            <item>dest_url</item>
+            <item>visit_date</item>
+            <item>ad_revenue</item>
+            <item>user_agent</item>
+            <item>c_code</item>
+            <item>l_code</item>
+            <item>s_keyword</item>
+            <item>avg_time_onsite</item>
+        </items>
+        <jobs>
+            <job name="page_view" type="count">
+                <property window="30" slide="10"/>
+                <key>dest_url</key>
+                <output>org.apache.spark.framework.output.StdEventOutput</output>
+            </job>
+            <job name="user_visit_count" type="distinct_aggregate_count">
+                <property window="30" slide="10"/>
+                <key>dest_url</key>
+                <value>source_ip</value>
+                <output>org.apache.spark.framework.output.StdEventOutput</output>
+            </job>
+            <job name="user_visit" type="aggregate">
+                <property window="30" slide="10"/>
+                <key>dest_url</key>
+                <value>source_ip</value>
+                <output>org.apache.spark.framework.output.StdEventOutput</output>
+            </job>
+        </jobs>
+    </application>
+</applications>
