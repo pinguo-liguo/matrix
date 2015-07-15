@@ -18,8 +18,7 @@
 
 package org.apache.spark.applications.weblog.operator
 
-import org.apache.spark.framework.Event
-import org.apache.spark.framework.operator.CountOperator
+import org.apache.spark.framework.operator.{Event, CountOperator}
 import org.apache.spark.{SparkContext, SparkEnv}
 import org.apache.spark.streaming.dstream.DStream
 import org.apache.spark.sql.SQLContext

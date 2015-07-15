@@ -18,7 +18,7 @@
 
 package org.apache.spark.applications.weblog
 
-import org.apache.spark.framework.Event
+import org.apache.spark.framework.operator.Event
 import org.apache.spark.framework.parser.AbstractEventParser
 
 class WebLogParser extends AbstractEventParser {

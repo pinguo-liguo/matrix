@@ -1,12 +1,10 @@
 package org.apache.spark.applications.qiyi_log
 
-import org.apache.spark.framework.Event
-import org.apache.spark.framework.operator.{AbstractOperator, OperatorConfig}
+import org.apache.spark.framework.operator.{Event, AbstractOperator, OperatorConfig}
 import org.apache.spark.framework.output.AbstractEventOutput
 import org.apache.spark.streaming.dstream.DStream
 
 import scala.xml._
-import org.apache.spark.framework.operator.OperatorConfig
 
 class QiyiLogOperator extends AbstractOperator with OperatorConfig {
   class QiyiLogOperatorConfig(

@@ -16,13 +16,11 @@
  * limitations under the License.
  */
 
-package org.apache.spark.framework
+package org.apache.spark.framework.scheduler
 
 import org.apache.log4j.PropertyConfigurator
-
 import org.apache.spark.SparkConf
-import org.apache.spark.streaming.StreamingContext
-import org.apache.spark.streaming.Seconds
+import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.streaming.kafka.KafkaUtils
 
 

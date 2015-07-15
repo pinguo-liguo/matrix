@@ -16,15 +16,14 @@
  * limitations under the License.
  */
 
-package org.apache.spark.framework
+package org.apache.spark.framework.scheduler
 
+import org.apache.spark.framework.operator.{AbstractOperator, OperatorConfig}
+import org.apache.spark.framework.parser.AbstractEventParser
 import org.apache.spark.streaming.dstream.DStream
 
-import scala.xml._
 import scala.collection.mutable
-
-import parser.AbstractEventParser
-import operator._
+import scala.xml._
 
 object Scheduler {
   //hash map for all operators in one framework

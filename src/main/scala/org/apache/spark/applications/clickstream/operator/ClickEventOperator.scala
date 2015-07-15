@@ -1,7 +1,6 @@
 package org.apache.spark.applications.clickstream.operator
 
-import org.apache.spark.framework.Event
-import org.apache.spark.framework.operator.{AbstractOperator, OperatorConfig}
+import org.apache.spark.framework.operator.{Event, AbstractOperator, OperatorConfig}
 import org.apache.spark.framework.output.AbstractEventOutput
 import org.apache.spark.streaming.dstream.DStream
 

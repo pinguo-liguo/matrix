@@ -18,7 +18,7 @@
 
 package org.apache.spark.framework.parser
 
-import org.apache.spark.framework.Event
+import org.apache.spark.framework.operator.Event
 
 abstract class AbstractEventParser extends Serializable {
   

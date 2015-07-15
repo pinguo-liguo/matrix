@@ -1,6 +1,6 @@
 package org.apache.spark.applications.qiyi_log
 
-import org.apache.spark.framework.Event
+import org.apache.spark.framework.operator.Event
 import org.apache.spark.framework.parser.AbstractEventParser
 
 class QiyiLogParser extends AbstractEventParser {

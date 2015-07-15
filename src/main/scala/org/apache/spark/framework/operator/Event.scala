@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.spark.framework
+package org.apache.spark.framework.operator
 
 class Event(val timestamp: Long,
 			val keyMap: Map[String, String]) extends Serializable {
