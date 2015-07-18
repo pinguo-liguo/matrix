@@ -18,7 +18,6 @@
 
 package org.apache.spark.framework.operator
 
-import org.apache.spark.framework.operator.Event
 import org.apache.spark.framework.output.AbstractEventOutput
 import org.apache.spark.streaming.dstream.DStream
 
