@@ -97,7 +97,7 @@ object KMeans extends Serializable {
 /**
  * TestKmeans is used to test offline the k-means algorithm, and can be run via:
  * {{{
- *   sbt "run-main org.apache.spark.streamdm.clusterers.utils.TestKMeans
+ *   sbt "run-main org.apache.spark.streamdm.clusterers.org.apache.spark.mlbase.regression.ftrl.utils.TestKMeans
  *    <input_file> <k> <iterations> <instance_type=dense|sparse>"
  * }}}
  */

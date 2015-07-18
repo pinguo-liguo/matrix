@@ -5,7 +5,9 @@ import java.util.UUID
 import akka.actor.{Actor, ActorRef, ActorSelection}
 import akka.pattern.ask
 import com.typesafe.config.Config
-import org.joda.time.{DateTimeZone, DateTime}
+import org.joda.time.{DateTime, DateTimeZone}
+
+//import org.joda.time.{DateTimeZone, DateTime}
 import org.apache.spark.core.response.{JobStates, Jobs, Job}
 import ContextManagerActor.{GetAllContexts, GetContext, NoSuchContext}
 import org.slf4j.LoggerFactory
@@ -22,7 +24,7 @@ import scala.util.{Success, Failure}
 object JobActor {
 
   trait JobStatus {
-    val startTime: Long = new DateTime  (DateTimeZone.UTC).getMillis
+    val startTime: Long = new DateTime(DateTimeZone.UTC).getMillis
   }
 
   case class JobStatusEnquiry(contextName: String, jobId: String)
@@ -59,7 +61,7 @@ class JobActor(config: Config, contextManagerActor: ActorRef) extends Actor {
         case contextRef: ActorSelection => {
 
           import JobStates.RUNNING
-          fromWebApi ! Job(job.uuid, job.contextName, RUNNING.toString, "", DateTime.now(DateTimeZone.UTC).getMillis)
+          fromWebApi ! Job(job.uuid, job.contextName, RUNNING.toString, "", new DateTime(DateTimeZone.UTC).getMillis)
 
           log.info(s"Sending RunJob message to actor $contextRef")
           contextRef ! job
