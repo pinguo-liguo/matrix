@@ -102,6 +102,11 @@
 			<version>2.7</version>
 		</dependency>
         <dependency>
+            <groupId>net.spy</groupId>
+            <artifactId>spymemcached</artifactId>
+            <version>2.11.4</version>
+        </dependency>
+        <dependency>
 			<groupId>io.spray</groupId>
 			<artifactId>spray-client</artifactId>
 			<version>${spray.io.version}</version>
